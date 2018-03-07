@@ -1,0 +1,13 @@
+make -C /lib/modules/4.10.0-28-generic/build M=/home/gautham/APES/hw2 modules
+make[1]: Entering directory '/usr/src/linux-headers-4.10.0-28-generic'
+  CC [M]  /home/gautham/APES/hw2/timer.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/gautham/APES/hw2/timer.mod.o
+  LD [M]  /home/gautham/APES/hw2/timer.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.10.0-28-generic'
+make -C /lib/modules/4.10.0-28-generic/build M=/home/gautham/APES/hw2 modules
+make[1]: Entering directory '/usr/src/linux-headers-4.10.0-28-generic'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[1]: Leaving directory '/usr/src/linux-headers-4.10.0-28-generic'
