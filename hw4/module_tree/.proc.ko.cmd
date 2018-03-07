@@ -1,0 +1,1 @@
+cmd_/home/gautham/APES/hw4/module_tree/proc.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/gautham/APES/hw4/module_tree/proc.ko /home/gautham/APES/hw4/module_tree/proc.o /home/gautham/APES/hw4/module_tree/proc.mod.o ;  true

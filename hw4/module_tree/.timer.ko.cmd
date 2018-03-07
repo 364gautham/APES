@@ -1,0 +1,1 @@
+cmd_/home/gautham/APES/hw2/timer.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/gautham/APES/hw2/timer.ko /home/gautham/APES/hw2/timer.o /home/gautham/APES/hw2/timer.mod.o ;  true

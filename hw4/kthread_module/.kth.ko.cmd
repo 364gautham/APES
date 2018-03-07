@@ -1,0 +1,1 @@
+cmd_/home/gautham/APES/hw4/kk/kth.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/gautham/APES/hw4/kk/kth.ko /home/gautham/APES/hw4/kk/kth.o /home/gautham/APES/hw4/kk/kth.mod.o ;  true
