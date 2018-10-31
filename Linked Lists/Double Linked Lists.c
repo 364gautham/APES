@@ -67,8 +67,7 @@ struct info* del_end(struct info* head){
 */
 
 struct info* del_pos(struct info* head,uint32_t pos){
-	struct info * temp = head;
-	struct info * temp1;
+	struct info * temp1=head;
 	struct info * temp2;		
 	if(head == NULL)
 	return head;
@@ -80,18 +79,16 @@ struct info* del_pos(struct info* head,uint32_t pos){
 	head = del_end(head);
 	return head;
 	}
-	while(pos>1){
+	while(pos && temp1->next != NULL){
+		temp1 =temp1->next;
 		pos--;
-		temp=(struct info*)temp->element.next;
 	}
-	temp2 = temp;	
-	temp1 = (struct info*)temp->element.prev;
-	temp =(struct info*) temp->element.next;
-	temp->element.prev = (struct node*)temp1;	/* next node prev linked to previous */
-
-	temp=(struct info*)temp2->element.prev; 
-	temp->element.next = temp2->element.next;
-	free(temp2);
+	temp2=temp1->prev;
+	temp2->next=temp1->next;
+	temp2=temp1->next;
+	temp->prev=temp1->prev;
+	
+	free(temp1);
 	return head;
 }
 
@@ -175,7 +172,7 @@ struct info* insert_at_pos(struct info* head,uint32_t data,uint32_t pos){
 	struct info * temp1 = head;
 	struct info * temp2;
 	
-	while(pos && temp1->next != NULL){
+	while((pos-1) && temp1->next != NULL){
 		temp1 =temp1->next;
 		pos--;
 	}
