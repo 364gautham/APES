@@ -156,48 +156,47 @@ struct info* insert_end(struct info* head,uint32_t data){
 * return : Head Pointer
 */
 struct info* insert_at_pos(struct info* head,uint32_t data,uint32_t pos){
-	struct info * temp = (struct info*)malloc(sizeof(struct info));
-	struct info * temp1 = head;
-	struct info * temp2;	
+	
 	//malloc(sizeof(struct node));		
 	if(head == NULL && pos > 0)
 	return head;
-	if(pos == 0){	
-	head = insert_begin(head,data);
-	return head;
+	if(head == NULL){
+		if(pos==0){
+			struct info * temp = (struct info*)malloc(sizeof(struct info));
+			temp->prev=NULL;
+			temp->next=NULL:
+			return temp;
+		}
+		else
+			return head;
+	}
+	
+	struct info * temp = (struct info*)malloc(sizeof(struct info));
+	struct info * temp1 = head;
+	struct info * temp2;
+	
+	while(pos && temp1->next != NULL){
+		temp1 =temp1->next;
+		pos--;
 	}
 
-	temp->data = data;
-	if(head == NULL){
-		head = temp;
-		head->element.prev = NULL;
-		head->element.next = NULL;
-		return head;	
+	/*If given position exists, insert the node and return head node pointer*/
+	if(temp1->next!= NULL)
+	{
+		temp->data=data;
+		temp->next = temp1->next;
+		temp1->next->prev = temp;
+		temp1->next = temp;
+		temp->prev = temp1;
+		return head;
 	}
-	
-	for(int i =1;i<pos-1;i++){
-		//if(pos == 1)
-		
-		temp1= (struct info*)temp1->element.next;	
+	else
+	{
+		/*If position doesnt exist, return NULL*/
+		printf("Given position doesn't exist\n");
+		return NULL;
 	}
-	
-	if(pos == 1){
-	temp->element.prev = (struct node*)temp1;
-	temp->element.next = temp1->element.next ;
-	temp1->element.next = (struct node*)temp;
-	return head;
-	}
-	temp->element.prev= temp1->element.next ;
-	temp1 = (struct info*)temp1->element.next;	
-	temp->element.next = temp1->element.next;	
-	temp2 = (struct info*)temp1->element.next;
-	temp2->element.prev = (struct node*)temp;	
-	
-	temp1->element.next = (struct node*) temp;
-		
-		
-	
-	return head;
+
 }
 /*
 * functions to verify traversal and proper data storage
