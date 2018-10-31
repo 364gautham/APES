@@ -86,7 +86,7 @@ struct info* del_pos(struct info* head,uint32_t pos){
 	temp2=temp1->prev;
 	temp2->next=temp1->next;
 	temp2=temp1->next;
-	temp->prev=temp1->prev;
+	temp2->prev=temp1->prev;
 	
 	free(temp1);
 	return head;
