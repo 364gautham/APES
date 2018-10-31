@@ -157,16 +157,15 @@ struct info* insert_at_pos(struct info* head,uint32_t data,uint32_t pos){
 	//malloc(sizeof(struct node));		
 	if(head == NULL && pos > 0)
 	return head;
-	if(head == NULL){
-		if(pos==0){
-			struct info * temp = (struct info*)malloc(sizeof(struct info));
-			temp->prev=NULL;
-			temp->next=NULL:
-			return temp;
-		}
-		else
-			return head;
+	if(pos==0){
+		struct info * temp = (struct info*)malloc(sizeof(struct info));
+		temp->next=head;
+		if(head!=NULL)
+			head->prev=temp;
+		temp->prev=NULL:
+		return temp;
 	}
+
 	
 	struct info * temp = (struct info*)malloc(sizeof(struct info));
 	struct info * temp1 = head;
