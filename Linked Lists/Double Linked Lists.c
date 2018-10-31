@@ -166,10 +166,7 @@ struct info* insert_at_pos(struct info* head,uint32_t data,uint32_t pos){
 	head = insert_begin(head,data);
 	return head;
 	}
-	if(pos==size(head)){
-	head = insert_end(head,data);
-	return head;
-	}
+
 	temp->data = data;
 	if(head == NULL){
 		head = temp;
